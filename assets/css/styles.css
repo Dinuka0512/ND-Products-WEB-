@@ -1,3 +1,12 @@
+.NavigationBar{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: auto;
+    z-index: 10000;
+}
+
 header{
     width: 100vw;
     height: fit-content;
@@ -58,19 +67,59 @@ header{
 
 #dashDetailCon{
     max-width: 1200px;
-    height: 500px;
+    height: fit-content;
 
-    background-color: black;
+    display: flex;
+    gap: 3px;
+    justify-content: center;
+
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto
+}
+
+.cardDash{
+    width: auto;
+    height: fit-content;
+    background-color: white;
+    border: 2px solid gray;
+
+    border-radius: 5px;
+}
+
+@media all and (max-width: 1005px){
+    #dashDetailCon{
+        display: grid;
+        gap: 3px;
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media all and (max-width: 765px){
+    #dashDetailCon{
+        grid-template-columns: 250px 250px 138px;
+    }
+}
+
+@media all and (max-width: 660px){
+    #dashDetailCon{
+        grid-template-columns: 250px 250px;
+    }
+}
+
+@media all and (max-width: 530px){
+    #dashDetailCon{
+        grid-template-columns: 250px;
+    }
+}
+
+#dashbordtableContainer{
+    max-width: 1200px;
+    height: fit-content;
+
     position: relative;
     left: 0;
     right: 0;
     margin: auto;
-}
-
-.cardDash{
-    width: fit-content;
-    height: fit-content;
-    background-color: white;
-
-    border-radius: 5px;
 }
