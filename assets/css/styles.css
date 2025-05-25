@@ -1,0 +1,76 @@
+header{
+    width: 100vw;
+    height: fit-content;
+}
+
+#dashbordContainer{
+    max-width: 1200px;
+    height: 550px;
+
+    background-color: yellow;
+
+    background-image: url("../Images/teaCup.jpg");
+    background-position: bottom;
+    background-size: cover;
+
+    border-radius: 10px;
+
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+}
+
+#dash_text{
+    width: fit-content;
+    height: fit-content;
+    display: flex;
+    border-radius: 10px;
+    background-color:rgb(233 233 233 / 70%);
+}
+
+.mainTitle{
+    font-size: 70px;
+}
+.subTitle{
+    font-size: 20px;
+}
+
+@media all and (max-width: 710px) {
+    #dash_text{
+        display: block;
+        text-align: center;
+    }
+
+    .mainTitle{
+        font-size: 45px;
+    }
+
+    .subTitle{
+        font-size: 18px;
+    }
+}
+
+
+#dashDetailCon{
+    max-width: 1200px;
+    height: 500px;
+
+    background-color: black;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+.cardDash{
+    width: fit-content;
+    height: fit-content;
+    background-color: white;
+
+    border-radius: 5px;
+}
