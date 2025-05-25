@@ -1,0 +1,77 @@
+CREATE DATABASE NDProducts;
+USE NDProducts;
+CREATE TABLE customer(
+    custId VARCHAR(255) PRIMARY KEY,
+    custName VARCHAR(255),
+    custEmail VARCHAR(255),
+    custLocation VARCHAR(255),
+    custContact VARCHAR(255)
+);
+
+DESC customer;
+
+CREATE TABLE item(
+    itemID VARCHAR(255) PRIMARY KEY,
+    itemName VARCHAR(255),
+    itemQty INT,
+    itemPrice DECIMAL(10,2)
+);
+
+DESC item;
+
+CREATE TABLE orderDetail(
+    orderDetailId VARCHAR(255) PRIMARY KEY,
+    itemId VARCHAR(255),
+    FOREIGN KEY (itemId) REFERENCES item (itemId) ON DELETE CASCADE ON UPDATE CASCADE,
+    qty INT
+);
+
+DESC orderDetail;
+
+CREATE TABLE orders(
+    orderId VARCHAR(255) PRIMARY KEY,
+    custId VARCHAR(255),
+    FOREIGN KEY (custId) REFERENCES customer(custId) ON DELETE CASCADE ON UPDATE CASCADE,
+    orderDetailId VARCHAR(255),
+    FOREIGN KEY (orderDetailId) REFERENCES orderDetail(orderDetailId) ON DELETE CASCADE ON UPDATE CASCADE,
+    date DATE
+);
+
+DESC orders;
+
+INSERT INTO customer (custId, custName, custEmail, custLocation, custContact) VALUES
+('C001', 'Heshan Lakmal', 'heshan@example.com', 'Bandaragama', '0771234567'),
+('C002', 'Nipun Perera', 'nipun@example.com', 'Panadura', '0779876543'),
+('C003', 'Kasun Silva', 'kasun@example.com', 'Horana', '0761122334'),
+('C004', 'Amaya Fernando', 'amaya@example.com', 'Colombo', '0713344556'),
+('C005', 'Tharindu Weerasinghe', 'tharindu@example.com', 'Kalutara', '0759988776');
+
+
+INSERT INTO item (itemID, itemName, itemQty, itemPrice) VALUES
+('I001', 'Tea Pack 100g', 50, 350.00),
+('I002', 'Coffee Pack 250g', 30, 750.00),
+('I003', 'Green Tea 50g', 40, 290.00),
+('I004', 'Chocolate Drink 500ml', 60, 420.00),
+('I005', 'Milk Powder 1kg', 25, 1250.00);
+
+
+INSERT INTO orderDetail (orderDetailId, itemId, qty) VALUES
+('OD001', 'I001', 2),
+('OD002', 'I002', 1),
+('OD003', 'I003', 3),
+('OD004', 'I005', 1),
+('OD005', 'I004', 2);
+
+
+INSERT INTO orders (orderId, custId, orderDetailId, date) VALUES
+('O001', 'C001', 'OD001', '2025-05-25'),
+('O002', 'C002', 'OD002', '2025-05-26'),
+('O003', 'C003', 'OD003', '2025-05-26'),
+('O004', 'C005', 'OD004', '2025-05-27'),
+('O005', 'C004', 'OD005', '2025-05-28');
+
+
+SELECT * FROM customer;
+SELECT * FROM item;
+SELECT * FROM orderDetail;
+SELECT * FROM orders;
